@@ -1,2 +1,2 @@
 # Java-Programowanie_Sieciowe
-##Zadania z laboratoriów.
+Zadania z laboratoriów.
