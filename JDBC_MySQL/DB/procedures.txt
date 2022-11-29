@@ -1,0 +1,38 @@
+
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAllPersons`()
+BEGIN
+		SELECT * FROM test.person;
+	END //
+DELIMITER ; 
+
+
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetCountPerson`(
+	OUT Out_Count INTEGER
+)
+BEGIN
+	SELECT COUNT(*) 
+	INTO Out_Count
+	FROM person;
+END //
+DELIMITER ;
+
+
+DELIMITER // # Pobranie osoby po numerze Id
+
+CREATE PROCEDURE GetPersons(
+	IN In_Id INTEGER,
+	OUT Out_Name VARCHAR(50),
+	OUT Out_LastName VARCHAR(50),
+	OUT Out_Age INTEGER
+)
+BEGIN
+	SELECT Name, LastName, Age 
+	INTO Out_Name, Out_LastName, Out_Age
+	FROM person WHERE Id = In_Id;
+END //
+DELIMITER;
+
+
+
